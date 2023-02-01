@@ -1,25 +1,23 @@
-import logo from './logo.svg';
-import './App.css';
+import React from "react";
+import TourCard from "./components/TourCard";
+import Container from "@mui/material/Container";
+import Grid from "@mui/material/Grid";
 
-function App() {
+const App = () => {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+    <div>
+      <Container maxWidth="lg">
+        <Grid container spacing={5}>
+          <TourCard />
+          <TourCard />
+          <TourCard />
+          <TourCard />
+          <TourCard />
+          <TourCard />
+        </Grid>
+      </Container>
     </div>
   );
-}
+};
 
 export default App;
