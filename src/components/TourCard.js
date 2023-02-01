@@ -8,18 +8,14 @@ import Rating from "@mui/material/Rating";
 
 import "./TourCard.css";
 
-const TourCard = (props) => {
+const TourCard = ({ tour }) => {
   return (
     <Grid item xs={3}>
       <Paper elevation={3}>
-        <img
-          src="https://media.timeout.com/images/105124791/750/422/image.jpg"
-          alt="las Vegas"
-          className="image"
-        />
+        <img src={tour.image} alt={tour.name} className="image" />
         <Box padding={1}>
           <Typography variant="subtitle2" component="h2">
-            Immerse into the Falls
+            {tour.name}
           </Typography>
 
           <Box
@@ -29,8 +25,8 @@ const TourCard = (props) => {
             }}
           >
             <AccessTime sx={{ width: "12.5px" }} />
-            <Typography variant="body2" component="h2" marginLeft={1}>
-              5 Hours
+            <Typography variant="caption" marginLeft={1}>
+              {tour.duration} hours
             </Typography>
           </Box>
 
@@ -39,28 +35,28 @@ const TourCard = (props) => {
               display: "flex",
               alignItems: "center",
             }}
-            marginTop={2}
+            marginTop={3}
           >
             <Rating
               name="read-only"
-              value={4.5}
+              value={tour.rating}
               readOnly
               precision={0.5}
               size="small"
             />
 
             <Typography variant="body2" component="h2" marginLeft={1}>
-              4.5
+              {tour.rating}
             </Typography>
 
-            <Typography variant="body2" component="h2" marginLeft={1}>
-              (655 Reviews)
+            <Typography variant="caption" component="h2" marginLeft={1}>
+              ({tour.numberOfReviews} Reviews)
             </Typography>
           </Box>
 
           <Box>
             <Typography variant="h6" component="h2" marginLeft={1}>
-              From $99
+              <span style={{ fontSize: "0.7em" }}>From </span> ${tour.price}
             </Typography>
           </Box>
         </Box>
