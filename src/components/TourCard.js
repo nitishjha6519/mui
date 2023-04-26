@@ -5,13 +5,24 @@ import Typography from "@mui/material/Typography";
 import Box from "@mui/material/Box";
 import { AccessTime } from "@mui/icons-material";
 import Rating from "@mui/material/Rating";
+import { useNavigate } from "react-router-dom";
 
 import "./TourCard.css";
 
 const TourCard = ({ tour }) => {
+  const navigate = useNavigate();
+
   return (
     <Grid item xs={3}>
-      <Paper elevation={3}>
+      <Paper
+        elevation={3}
+        name={tour.name}
+        onClick={() =>
+          navigate("/product", {
+            state: { title: tour.name, src: tour.image, cost: tour.price },
+          })
+        }
+      >
         <img src={tour.image} alt={tour.name} className="image" />
         <Box padding={1}>
           <Typography variant="subtitle2" component="h2">
